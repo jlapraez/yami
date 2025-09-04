@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Privado</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffccd5;
+      color: #fff;
+      text-align: center;
+    }
+    .login, .principal {
+      display: none;
+      padding: 2rem;
+    }
+    .active {
+      display: block;
+    }
+    #pin {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      text-align: center;
+      width: 150px;
+      border: 2px solid #ff3366;
+      border-radius: 5px;
+      color: #333;
+      background: #fff;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    .key {
+      background-color: #ff3366;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 15px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .key:hover {
+      background-color: #e6004c;
+    }
+    .main-content {
+      background-color: #ff3366;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+    }
+    img, video {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .mensaje {
+      background: #ff6680;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login active" id="login">
+    <h1>Ingresa tu PIN</h1>
+    <input type="password" id="pin" readonly>
+    <div class="keypad">
+      <button class="key" onclick="addNumber('1')">1</button>
+      <button class="key" onclick="addNumber('2')">2</button>
+      <button class="key" onclick="addNumber('3')">3</button>
+      <button class="key" onclick="addNumber('4')">4</button>
+      <button class="key" onclick="addNumber('5')">5</button>
+      <button class="key" onclick="addNumber('6')">6</button>
+      <button class="key" onclick="addNumber('7')">7</button>
+      <button class="key" onclick="addNumber('8')">8</button>
+      <button class="key" onclick="addNumber('9')">9</button>
+      <button class="key" onclick="clearPin()">←</button>
+      <button class="key" onclick="addNumber('0')">0</button>
+      <button class="key" onclick="checkPin()">✔</button>
+    </div>
+  </div>
+
+  <div class="principal" id="principal">
+    <h1>🫶🌻PARA MI BONITA YAMI🌻🫶</h1>
+    <div class="main-content">
+      <img src="https://via.placeholder.com/400x300?text=Foto+de+Recuerdo" alt="mariposa">
+      <video controls src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
+      <div class="mensaje">
+        Hola bonita 🌻, "Dicen que el amor es como una mariposa, 
+        que cuanto más intentas atraparla, más se escapa de
+         tus manos, pero tú eres esa mariposa que quiero atrapar
+          y nunca dejar volar." 🌻🫣TQM
+      </div>
+      <p>Que Dios🙌 te cuide mucho,</p>
+  <p>sé que eres fuerte y valiente sin embargo,</p>
+  <p>cuidate de las personas con malas intenciones</p>
+  <p>que siempre estes bien de salud y puedas cumplir tus sueños y seas la mejor.🙏🌸</p>
+  <p>🥹No te rindas aqui estare para animarte y apoyarte siempre🌷</p>
+  <p class="message">💐TEN POR SEGURO QUE ESTARE A TU LADO PARA  APOYARTE EN LAS BUENAS Y EN LAS MALAS🌻</p>
+  <p class="signature">[🌻ANIMO ERES LA MEJOR Y CONFIA EN LOS PLANES DE DIOS🙌🫶]</p>
+    </div>
+  </div>
+
+  <script>
+    let pinInput = document.getElementById('pin');
+
+    function addNumber(num) {
+      if (pinInput.value.length < 4) {
+        pinInput.value += num;
+      }
+    }
+
+    function clearPin() {
+      pinInput.value = pinInput.value.slice(0, -1);
+    }
+
+    function checkPin() {
+      if (pinInput.value === '2025') {
+        document.getElementById('login').classList.remove('active');
+        document.getElementById('principal').classList.add('active');
+      } else {
+        alert('PIN incorrecto. Intenta nuevamente.');
+        pinInput.value = '';
+      }
+    }
+  </script>
+
+</body>
+</html>
